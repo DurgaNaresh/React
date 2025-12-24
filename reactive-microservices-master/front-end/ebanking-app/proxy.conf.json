@@ -1,0 +1,37 @@
+{
+  "/api/*": {
+    "target": "http://localhost:8083",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/": ""
+    }
+  },
+  "/api/payment": {
+    "target": "http://localhost:8083/payment",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/payment": ""
+    }
+  },
+  "/api/accounts": {
+    "target": "http://localhost:8083/accounts",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/accounts": ""
+    }
+  },
+  "/api/account/": {
+    "target": "http://localhost:8083/account",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/accounts": ""
+    }
+  },
+  "/api/login": {
+    "target": "http://localhost:8083/login",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/login": ""
+    }
+  }
+}
