@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav
+               [mode]="sideNavMode"
+               [opened]="!isSmallScreen">
+    <app-sidenav (sidenavToggle)="onSidenavToggle()"></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header [cartItem]="cartItems$ | async"
+                [ngClass]="{'width-full': isWidthFull, 'width-with-sidenav': isWidthWithSidenav}"
+                (menuBtnClick)="sidenav.toggle(); menuClick()"
+                (cartBtnClick)="cartClick()"
+                (homeBtnClick)="homeClick()"></app-header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,59 @@
+<div *ngIf="auth.getUserInfo() | async as user; then authenticated else guest">
+  <!-- template will replace this div -->
+</div>
+<ng-template #authenticated>
+  <div *ngIf="auth.getUserInfo() | async as user">
+    <div class="sidenav-title">
+      <mat-list>
+        <mat-list-item class="sidenav-title-text">Welcome, {{ user.displayName }}</mat-list-item>
+      </mat-list>
+    </div>
+    <mat-divider></mat-divider>
+    <mat-list class="sidenav-menu">
+      <mat-list-item class="sidenav-menu-item">
+        <button mat-button
+                class="sidenav-menu-button"
+                (click)="onClickOrder()">
+          <span>
+            ORDER
+          </span>
+        </button>
+      </mat-list-item>
+      <mat-list-item class="sidenav-menu-item">
+        <button mat-button
+                class="sidenav-menu-button"
+                (click)="onLogOut()">
+          <span>
+            LOGOUT
+          </span>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</ng-template>
+<ng-template #guest>
+  <div class="sidenav-title">
+    <mat-list>
+      <mat-list-item class="sidenav-title-text">Welcome, Guest</mat-list-item>
+    </mat-list>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-list class="sidenav-menu">
+    <!-- <mat-list-item class="sidenav-menu-item">
+      <button mat-button
+              class="sidenav-menu-button"
+              (click)="onSignup()">
+        <span>JOIN</span>
+      </button>
+    </mat-list-item> -->
+    <mat-list-item class="sidenav-menu-item">
+      <button mat-button
+              class="sidenav-menu-button"
+              (click)="onLogin()">
+        <span>
+          LOGIN
+        </span>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</ng-template>
